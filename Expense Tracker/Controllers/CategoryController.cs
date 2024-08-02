@@ -12,6 +12,7 @@ namespace Expense_Tracker.Controllers
 
     /// <summary>
     /// Comment the logic of this controllere here !
+    /// New comment here 
     /// </summary>
     public class CategoryController : Controller
     {

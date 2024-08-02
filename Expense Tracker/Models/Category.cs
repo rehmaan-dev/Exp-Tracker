@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Expense_Tracker.Models
 {
+    //new changes
     public class Category
     {
         [Key]

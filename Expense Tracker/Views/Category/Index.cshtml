@@ -3,15 +3,24 @@
 @{
     // Set the page title and action button details
     ViewData["PageTitle"] = "Categories";
+    // Set page title to "Categories"
+
+<<<<<<< HEAD
+=======
     ViewData["PageActionText"] = "+ New Category";
+    // Set the text for the new category action
+
     ViewData["PageActionUrl"] = "/Category/AddOrEdit";
+    // Set the URL for the new category action
 }
 
+>>>>>>> b3626a4 (added comment)
 <div class="row">
     <div class="col-md-7">
         <!-- Initialize the Syncfusion grid with category data -->
         <ejs-grid id="categories" dataSource="@Model" gridLines="None"
                   allowSorting="true" allowPaging="true">
+<<<<<<< HEAD
             <!-- Pagination settings for the grid -->
             <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
             <e-grid-columns>
@@ -20,7 +29,22 @@
                 <!-- Column for displaying category type with conditional formatting -->
                 <e-grid-column headerText="Type" template="#typeColumnTemplate" width="150px"></e-grid-column>
                 <!-- Column for action buttons (Edit and Delete) -->
+=======
+            <!-- Set up grid with sorting and paging -->
+            <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
+            <!-- Configure grid to show 5 items per page -->
+
+            <e-grid-columns>
+                <!-- Define grid columns -->
+                <e-grid-column headerText="Category" field="TitleWithIcon"></e-grid-column>
+                <!-- Column for category title with icon -->
+
+                <e-grid-column headerText="Type" template="#typeColumnTemplate" width="150px"></e-grid-column>
+                <!-- Column for category type with template -->
+
+>>>>>>> b3626a4 (added comment)
                 <e-grid-column headerText="Actions" template="#actionColumnTemplate" width="100px"></e-grid-column>
+                <!-- Column for action buttons with template -->
             </e-grid-columns>
         </ejs-grid>
     </div>
@@ -28,6 +52,7 @@
         <div class="widget h-100 d-flex justify-content-center align-items-center">
             <!-- Placeholder for an icon or graphic -->
             <i class="fa-solid fa-shapes fa-2xl"></i>
+            <!-- Display icon -->
         </div>
     </div>
 </div>
@@ -36,8 +61,10 @@
 <script id="typeColumnTemplate" type="text/x-template">
     ${if(Type=="Income" || Type=="Savings")}
         <span class="badge bg-success">${Type}</span>
+        <!-- Display "Income" and "Savings" with a green badge -->
     ${else}
         <span class="badge bg-danger">${Type}</span>
+        <!-- Display other types with a red badge -->
     ${/if}
 </script>
 
@@ -47,13 +74,20 @@
         <!-- Edit button -->
         <a class="btn btn-sm no-a-decoration" href="/Category/AddOrEdit/${CategoryId}">
             <i class="fa-solid fa-pen fa-lg"></i>
+            <!-- Edit button -->
         </a>
         <!-- Delete button with confirmation prompt -->
         <form action="/Category/Delete/${CategoryId}" method="post">
     @Html.AntiForgeryToken()
+<<<<<<< HEAD
+=======
+            <!-- Anti-forgery token for form security -->
+
+>>>>>>> b3626a4 (added comment)
             <button type="submit" class="btn btn-sm btn-link no-a-decoration"
             onclick="return confirm(&quot;Are you sure you want to delete this record?&quot;)">
                 <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
+                <!-- Delete button with confirmation -->
             </button>
         </form>
     </div>

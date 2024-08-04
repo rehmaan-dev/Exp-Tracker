@@ -7,7 +7,6 @@ namespace Expense_Tracker.Controllers
 {
     public class DashboardController : Controller
     {
-
         private readonly ApplicationDbContext _context;
 
         public DashboardController(ApplicationDbContext context)
@@ -15,34 +14,37 @@ namespace Expense_Tracker.Controllers
             _context = context;
         }
 
+        // GET: Dashboard
+        // This action retrieves and calculates data for the dashboard view.
         public async Task<ActionResult> Index()
         {
-            // Last 7 Days
+            // Define the start and end dates for the last 7 days.
             DateTime StartDate = DateTime.Today.AddDays(-6);
             DateTime EndDate = DateTime.Today;
 
+            // Retrieve transactions from the last 7 days and include the associated categories.
             List<Transaction> SelectedTransactions = await _context.Transactions
                 .Include(x => x.Category)
                 .Where(y => y.Date >= StartDate && y.Date <= EndDate)
                 .ToListAsync();
 
-            // Total Income
+            // Calculate total income from the selected transactions.
             int TotalIncome = SelectedTransactions
                 .Where(i => i.Category.Type == "Income")
                 .Sum(j => j.Amount);
             ViewBag.TotalIncome = "₹" + TotalIncome.ToString("N0"); // Format with rupee sign
 
-            // Total Expense
+            // Calculate total expenses from the selected transactions.
             int TotalExpense = SelectedTransactions
                 .Where(i => i.Category.Type == "Expense")
                 .Sum(j => j.Amount);
             ViewBag.TotalExpense = "₹" + TotalExpense.ToString("N0"); // Format with rupee sign
 
-            // Balance
+            // Calculate the balance as total income minus total expenses.
             int Balance = TotalIncome - TotalExpense;
             ViewBag.Balance = "₹" + Balance.ToString("N0"); // Format with rupee sign
 
-            // Doughnut Chart - Expense By Category
+            // Prepare data for the doughnut chart showing expenses by category.
             ViewBag.DoughnutChartData = SelectedTransactions
                 .Where(i => i.Category.Type == "Expense")
                 .GroupBy(j => j.Category.CategoryId)
@@ -55,9 +57,9 @@ namespace Expense_Tracker.Controllers
                 .OrderByDescending(l => l.amount)
                 .ToList();
 
-            // Spline Chart - Income vs Expense
+            // Prepare data for the spline chart showing income and expenses over the last 7 days.
 
-            // Income
+            // Group transactions by date and calculate daily income.
             List<SplineChartData> IncomeSummary = SelectedTransactions
                 .Where(i => i.Category.Type == "Income")
                 .GroupBy(j => j.Date)
@@ -68,7 +70,7 @@ namespace Expense_Tracker.Controllers
                 })
                 .ToList();
 
-            // Expense
+            // Group transactions by date and calculate daily expenses.
             List<SplineChartData> ExpenseSummary = SelectedTransactions
                 .Where(i => i.Category.Type == "Expense")
                 .GroupBy(j => j.Date)
@@ -79,11 +81,12 @@ namespace Expense_Tracker.Controllers
                 })
                 .ToList();
 
-            // Combine Income & Expense
+            // Generate a list of the last 7 days.
             string[] Last7Days = Enumerable.Range(0, 7)
                 .Select(i => StartDate.AddDays(i).ToString("dd-MMM"))
                 .ToArray();
 
+            // Combine income and expense data for each day in the last 7 days.
             ViewBag.SplineChartData = from day in Last7Days
                                       join income in IncomeSummary on day equals income.day into dayIncomeJoined
                                       from income in dayIncomeJoined.DefaultIfEmpty()
@@ -96,7 +99,7 @@ namespace Expense_Tracker.Controllers
                                           expense = expense == null ? 0 : expense.expense,
                                       };
 
-            // Recent Transactions
+            // Retrieve the most recent 5 transactions for display.
             ViewBag.RecentTransactions = await _context.Transactions
                 .Include(i => i.Category)
                 .OrderByDescending(j => j.Date)
@@ -105,14 +108,13 @@ namespace Expense_Tracker.Controllers
 
             return View();
         }
-
     }
 
+    // Class for storing income and expense data for the spline chart.
     public class SplineChartData
     {
         public string day;
         public int income;
         public int expense;
-
     }
 }

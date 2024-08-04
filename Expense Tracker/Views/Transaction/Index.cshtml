@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Expense_Tracker.Models.Transaction>
 
 @{
+    // Set the page title and action button text and URL
     ViewData["PageTitle"] = "Transactions";
     ViewData["PageActionText"] = "+ New Transaction";
     ViewData["PageActionUrl"] = "/Transaction/AddOrEdit";
@@ -8,32 +9,39 @@
 
 <div class="row">
     <div class="col-md-7">
+        <!-- Initialize the grid with transaction data -->
         <ejs-grid id="transactions" dataSource="@Model" gridLines="None"
                   allowSorting="true" allowPaging="true">
+            <!-- Set the page size to 10 -->
             <e-grid-pagesettings pageSize="10"></e-grid-pagesettings>
             <e-grid-columns>
+                <!-- Define the grid columns -->
                 <e-grid-column headerText="Category" field="CategoryTitleWithIcon"></e-grid-column>
                 <e-grid-column headerText="Date" field="Date" width="110px"
-                    type="date" format="MMM-dd-yy" textAlign="Left"></e-grid-column>
+                               type="date" format="MMM-dd-yy" textAlign="Left"></e-grid-column>
                 <e-grid-column headerText="Amount" field="FormattedAmount" textAlign="Right" width="110px"></e-grid-column>
                 <e-grid-column headerText="Actions" template="#actionColumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
     </div>
     <div class="col-md-5">
+        <!-- Widget with an icon -->
         <div class="widget h-100 d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-money-bill-transfer fa-2xl"></i>
         </div>
     </div>
 </div>
 
+<!-- Template for action buttons in the grid -->
 <script id="actionColumnTemplate" type="text/x-template">
     <div class="d-flex flex-row justify-content-start">
+        <!-- Edit button -->
         <a class="btn btn-sm no-a-decoration" href="/Transaction/AddOrEdit/${TransactionId}">
             <i class="fa-solid fa-pen fa-lg"></i>
         </a>
+        <!-- Delete button with confirmation -->
         <form action="/Transaction/Delete/${TransactionId}" method="post">
-            @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-sm btn-link no-a-decoration"
             onclick="return confirm(&quot;Are sure to delete this record?&quot;)">
                 <i class="fa-solid fa-trash-can fa-lg text-danger"></i>

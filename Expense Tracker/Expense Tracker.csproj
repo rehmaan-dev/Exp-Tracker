@@ -1,26 +1,42 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
+	<!-- Indicates that this is an ASP.NET Core web application project -->
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Expense_Tracker</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<!-- Specifies the target framework for the project (.NET 6.0) -->
 
-  <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
+		<Nullable>enable</Nullable>
+		<!-- Enables nullable reference types for the project -->
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.5" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
-    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="20.1.0.58" />
-  </ItemGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<!-- Automatically includes common namespaces without requiring explicit using directives -->
 
+		<RootNamespace>Expense_Tracker</RootNamespace>
+		<!-- Sets the default namespace for the project -->
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\.editorconfig" Link=".editorconfig" />
+		<!-- Includes an .editorconfig file for code style configuration from the parent directory -->
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Entity Framework Core for ORM and database access -->
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
+		<!-- SQL Server provider for Entity Framework Core -->
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
+		<!-- Tools for EF Core (e.g., migrations) -->
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
+			<PrivateAssets>all</PrivateAssets>
+			<!-- Prevents this package from being exposed to dependent projects -->
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<!-- Specifies which assets of the package should be included -->
+		</PackageReference>
+		<!-- Tools for scaffolding and code generation -->
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.5" />
+		<!-- Adds Swagger support for API documentation -->
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+		<!-- Syncfusion's ASP.NET Core UI components library -->
+		<PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="20.1.0.58" />
+	</ItemGroup>
 </Project>

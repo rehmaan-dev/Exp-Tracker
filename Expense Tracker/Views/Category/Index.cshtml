@@ -5,8 +5,6 @@
     ViewData["PageTitle"] = "Categories";
     // Set page title to "Categories"
 
-<<<<<<< HEAD
-=======
     ViewData["PageActionText"] = "+ New Category";
     // Set the text for the new category action
 
@@ -14,43 +12,18 @@
     // Set the URL for the new category action
 }
 
-<<<<<<< HEAD
->>>>>>> b3626a4 (added comment)
-=======
->>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
->>>>>>> bce3d9b1d32ceb37dee25725879f47e197d49e8c
 <div class="row">
     <div class="col-md-7">
         <!-- Initialize the Syncfusion grid with category data -->
         <ejs-grid id="categories" dataSource="@Model" gridLines="None"
                   allowSorting="true" allowPaging="true">
-<<<<<<< HEAD
-            <!-- Pagination settings for the grid -->
-            <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
-            <e-grid-columns>
-                <!-- Column for displaying category title with icon -->
-                <e-grid-column headerText="Category" field="TitleWithIcon"></e-grid-column>
-                <!-- Column for displaying category type with conditional formatting -->
-                <e-grid-column headerText="Type" template="#typeColumnTemplate" width="150px"></e-grid-column>
-                <!-- Column for action buttons (Edit and Delete) -->
-=======
             <!-- Set up grid with sorting and paging -->
             <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
             <!-- Configure grid to show 5 items per page -->
 
             <e-grid-columns>
-                <!-- Define grid columns -->
                 <e-grid-column headerText="Category" field="TitleWithIcon"></e-grid-column>
-                <!-- Column for category title with icon -->
-
                 <e-grid-column headerText="Type" template="#typeColumnTemplate" width="150px"></e-grid-column>
-                <!-- Column for category type with template -->
-
-<<<<<<< HEAD
->>>>>>> b3626a4 (added comment)
-=======
->>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
->>>>>>> bce3d9b1d32ceb37dee25725879f47e197d49e8c
                 <e-grid-column headerText="Actions" template="#actionColumnTemplate" width="100px"></e-grid-column>
                 <!-- Column for action buttons with template -->
             </e-grid-columns>
@@ -86,16 +59,7 @@
         </a>
         <!-- Delete button with confirmation prompt -->
         <form action="/Category/Delete/${CategoryId}" method="post">
-    @Html.AntiForgeryToken()
-<<<<<<< HEAD
-=======
-            <!-- Anti-forgery token for form security -->
-
-<<<<<<< HEAD
->>>>>>> b3626a4 (added comment)
-=======
->>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
->>>>>>> bce3d9b1d32ceb37dee25725879f47e197d49e8c
+            @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-sm btn-link no-a-decoration"
             onclick="return confirm(&quot;Are you sure you want to delete this record?&quot;)">
                 <i class="fa-solid fa-trash-can fa-lg text-danger"></i>

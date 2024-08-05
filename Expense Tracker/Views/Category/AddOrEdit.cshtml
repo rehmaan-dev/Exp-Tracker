@@ -13,45 +13,20 @@
             <form asp-action="AddOrEdit">
                 <!-- Display validation summary for model-level errors -->
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<<<<<<< HEAD
-<<<<<<< HEAD
+                <!-- Hidden field to store CategoryId -->
 
                 <!-- Hidden input to store the CategoryId -->
                 <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
 
-=======
-                <!-- Hidden field to store CategoryId -->
-                <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
-
-                <!-- Radio buttons for category type -->
->>>>>>> b3626a4 (added comment)
                 <div class="mb-3">
                     <!-- Radio buttons for selecting the category type -->
                     <div class='e-btn-group custom-rbt-group'>
-<<<<<<< HEAD
                         <!-- Radio button for 'Expense' type -->
                         <input type="radio" id="radioleft" name="Type" value="Expense" checked="@(Model.Type=="Expense")" />
                         <label class="e-btn" for="radioleft">Expense</label>
 
                         <!-- Radio button for 'Income' type -->
                         <input type="radio" id="radiomiddle1" name="Type" value="Income" checked="@(Model.Type=="Income")" />
-=======
-                        <input type="radio" id="radioleft" name="Type" value="Expense" checked="@(Model.Type == "Expense")" />
-                        <label class="e-btn" for="radioleft">Expense</label>
-                        <input type="radio" id="radiomiddle1" name="Type" value="Income" checked="@(Model.Type == "Income")" />
->>>>>>> b3626a4 (added comment)
-=======
-                <!-- Hidden field to store CategoryId -->
-                <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
-
-                <!-- Radio buttons for category type -->
-                <div class="mb-3">
-                    <!-- Radio buttons for selecting the category type -->
-                    <div class='e-btn-group custom-rbt-group'>
-                        <input type="radio" id="radioleft" name="Type" value="Expense" checked="@(Model.Type == "Expense")" />
-                        <label class="e-btn" for="radioleft">Expense</label>
-                        <input type="radio" id="radiomiddle1" name="Type" value="Income" checked="@(Model.Type == "Income")" />
->>>>>>> bce3d9b1d32ceb37dee25725879f47e197d49e8c
                         <label class="e-btn" for="radiomiddle1">Income</label>
                     </div>
                 </div>
@@ -63,33 +38,18 @@
                     <span asp-validation-for="Title" class="text-danger fs-6"></span>
                 </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                <!-- Textbox for category icon -->
->>>>>>> b3626a4 (added comment)
-=======
-                <!-- Textbox for category icon -->
->>>>>>> bce3d9b1d32ceb37dee25725879f47e197d49e8c
                 <div class="mb-3">
                     <!-- Textbox for entering the category icon -->
                     <ejs-textbox id="icon" placeholder="Icon" ejs-for="Icon" floatLabelType="Always"></ejs-textbox>
                 </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <!-- Submit button to submit the form -->
-=======
-                <!-- Submit button -->
->>>>>>> b3626a4 (added comment)
-=======
-                <!-- Submit button -->
->>>>>>> bce3d9b1d32ceb37dee25725879f47e197d49e8c
                 <ejs-button id="submit" type="submit" content="Submit" cssClass="e-success"></ejs-button>
             </form>
         </div>
     </div>
 
+    </div>
     <div class="col-md-5">
         <div class="widget h-100 d-flex justify-content-center align-items-center">
             <!-- Placeholder for an icon or graphic -->

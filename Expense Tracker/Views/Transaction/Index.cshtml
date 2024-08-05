@@ -8,14 +8,19 @@
 
 <div class="row">
     <div class="col-md-7">
+        <!-- Syncfusion Grid for displaying transactions -->
         <ejs-grid id="transactions" dataSource="@Model" gridLines="None"
                   allowSorting="true" allowPaging="true">
             <e-grid-pagesettings pageSize="10"></e-grid-pagesettings>
             <e-grid-columns>
+                <!-- Column for Category -->
                 <e-grid-column headerText="Category" field="CategoryTitleWithIcon"></e-grid-column>
+                <!-- Column for Date -->
                 <e-grid-column headerText="Date" field="Date" width="110px"
-                    type="date" format="MMM-dd-yy" textAlign="Left"></e-grid-column>
+                               type="date" format="MMM-dd-yy" textAlign="Left"></e-grid-column>
+                <!-- Column for Amount -->
                 <e-grid-column headerText="Amount" field="FormattedAmount" textAlign="Right" width="110px"></e-grid-column>
+                <!-- Column for Actions -->
                 <e-grid-column headerText="Actions" template="#actionColumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
@@ -27,15 +32,18 @@
     </div>
 </div>
 
+<!-- Template for Action Column -->
 <script id="actionColumnTemplate" type="text/x-template">
     <div class="d-flex flex-row justify-content-start">
+        <!-- Edit Button -->
         <a class="btn btn-sm no-a-decoration" href="/Transaction/AddOrEdit/${TransactionId}">
             <i class="fa-solid fa-pen fa-lg"></i>
         </a>
+        <!-- Delete Button -->
         <form action="/Transaction/Delete/${TransactionId}" method="post">
-            @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-sm btn-link no-a-decoration"
-            onclick="return confirm(&quot;Are sure to delete this record?&quot;)">
+            onclick="return confirm(&quot;Are you sure you want to delete this record?&quot;)">
                 <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
             </button>
         </form>

@@ -1,31 +1,38 @@
 ﻿@model IEnumerable<Expense_Tracker.Models.Category>
 
 @{
+    // Set the page title and action button details
     ViewData["PageTitle"] = "Categories";
     ViewData["PageActionText"] = "+ New Category";
     ViewData["PageActionUrl"] = "/Category/AddOrEdit";
 }
 
-
 <div class="row">
     <div class="col-md-7">
+        <!-- Initialize the Syncfusion grid with category data -->
         <ejs-grid id="categories" dataSource="@Model" gridLines="None"
-                  allowSorting="true" allowPaging="true" >
-            <e-grid-pagesettings pageSize="5" ></e-grid-pagesettings>
+                  allowSorting="true" allowPaging="true">
+            <!-- Pagination settings for the grid -->
+            <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
             <e-grid-columns>
+                <!-- Column for displaying category title with icon -->
                 <e-grid-column headerText="Category" field="TitleWithIcon"></e-grid-column>
+                <!-- Column for displaying category type with conditional formatting -->
                 <e-grid-column headerText="Type" template="#typeColumnTemplate" width="150px"></e-grid-column>
+                <!-- Column for action buttons (Edit and Delete) -->
                 <e-grid-column headerText="Actions" template="#actionColumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
     </div>
     <div class="col-md-5">
         <div class="widget h-100 d-flex justify-content-center align-items-center">
+            <!-- Placeholder for an icon or graphic -->
             <i class="fa-solid fa-shapes fa-2xl"></i>
         </div>
     </div>
 </div>
 
+<!-- Template for displaying category type with conditional styling -->
 <script id="typeColumnTemplate" type="text/x-template">
     ${if(Type=="Income" || Type=="Savings")}
         <span class="badge bg-success">${Type}</span>
@@ -34,15 +41,18 @@
     ${/if}
 </script>
 
+<!-- Template for displaying action buttons (Edit and Delete) -->
 <script id="actionColumnTemplate" type="text/x-template">
     <div class="d-flex flex-row justify-content-start">
+        <!-- Edit button -->
         <a class="btn btn-sm no-a-decoration" href="/Category/AddOrEdit/${CategoryId}">
             <i class="fa-solid fa-pen fa-lg"></i>
         </a>
+        <!-- Delete button with confirmation prompt -->
         <form action="/Category/Delete/${CategoryId}" method="post">
-            @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-sm btn-link no-a-decoration"
-            onclick="return confirm(&quot;Are sure to delete this record?&quot;)">
+            onclick="return confirm(&quot;Are you sure you want to delete this record?&quot;)">
                 <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
             </button>
         </form>

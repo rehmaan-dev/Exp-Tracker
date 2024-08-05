@@ -1,13 +1,14 @@
 ﻿@*
-        For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-    *@
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
 @{
+    // Set a flag to indicate that this is the dashboard view
     ViewData["isDashboard"] = true;
 }
 
-@*Summary Widgets*@
+@* Summary Widgets *@
 <div class="row mb-4">
-
+    <!-- Total Income Widget -->
     <div class="col-md-4">
         <div class="d-flex flex-row widget summary income">
             <div class="d-flex flex-column justify-content-center p-5">
@@ -20,6 +21,7 @@
         </div>
     </div>
 
+    <!-- Total Expense Widget -->
     <div class="col-md-4">
         <div class="d-flex flex-row widget summary expense">
             <div class="d-flex flex-column justify-content-center p-5">
@@ -32,6 +34,7 @@
         </div>
     </div>
 
+    <!-- Balance Widget -->
     <div class="col-md-4">
         <div class="d-flex flex-row widget summary balance">
             <div class="d-flex flex-column justify-content-center p-5">
@@ -45,8 +48,9 @@
     </div>
 </div>
 
-@*Doughnut and Spline Chart*@
+@* Doughnut and Spline Chart *@
 <div class="row mb-4">
+    <!-- Doughnut Chart for Expense By Category -->
     <div class="col-md-4">
         <div class="widget chart">
             <div class="p-4">
@@ -68,6 +72,8 @@
             </ejs-accumulationchart>
         </div>
     </div>
+
+    <!-- Spline Chart for Income vs Expense -->
     <div class="col-md-8">
         <div class="widget chart">
             <div class="p-4">
@@ -102,8 +108,9 @@
     </div>
 </div>
 
-@*Recent Transactions and More*@
+@* Recent Transactions and More *@
 <div class="row">
+    <!-- Recent Transactions Grid -->
     <div class="col-md-6">
         <div class="widget">
             <div class="p-4">
@@ -121,6 +128,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Placeholder Widget -->
     <div class="col-md-6">
         <div class="widget h-100">
             <div class="d-flex justify-content-center align-items-center h-100">

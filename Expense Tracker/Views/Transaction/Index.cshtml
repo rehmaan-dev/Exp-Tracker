@@ -13,7 +13,11 @@
         <!-- Syncfusion Grid for displaying transactions -->
 =======
         <!-- Initialize the grid with transaction data -->
+<<<<<<< HEAD
 >>>>>>> b3626a4 (added comment)
+=======
+>>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
+>>>>>>> bce3d9b1d32ceb37dee25725879f47e197d49e8c
         <ejs-grid id="transactions" dataSource="@Model" gridLines="None"
                   allowSorting="true" allowPaging="true">
             <!-- Set the page size to 10 -->
@@ -23,7 +27,11 @@
                 <!-- Column for Category -->
 =======
                 <!-- Define the grid columns -->
+<<<<<<< HEAD
 >>>>>>> b3626a4 (added comment)
+=======
+>>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
+>>>>>>> bce3d9b1d32ceb37dee25725879f47e197d49e8c
                 <e-grid-column headerText="Category" field="CategoryTitleWithIcon"></e-grid-column>
                 <!-- Column for Date -->
                 <e-grid-column headerText="Date" field="Date" width="110px"
@@ -31,7 +39,11 @@
 <<<<<<< HEAD
                 <!-- Column for Amount -->
 =======
+<<<<<<< HEAD
 >>>>>>> b3626a4 (added comment)
+=======
+>>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
+>>>>>>> bce3d9b1d32ceb37dee25725879f47e197d49e8c
                 <e-grid-column headerText="Amount" field="FormattedAmount" textAlign="Right" width="110px"></e-grid-column>
                 <!-- Column for Actions -->
                 <e-grid-column headerText="Actions" template="#actionColumnTemplate" width="100px"></e-grid-column>
@@ -64,7 +76,11 @@
             <i class="fa-solid fa-pen fa-lg"></i>
         </a>
         <!-- Delete button with confirmation -->
+<<<<<<< HEAD
 >>>>>>> b3626a4 (added comment)
+=======
+>>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
+>>>>>>> bce3d9b1d32ceb37dee25725879f47e197d49e8c
         <form action="/Transaction/Delete/${TransactionId}" method="post">
     @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-sm btn-link no-a-decoration"

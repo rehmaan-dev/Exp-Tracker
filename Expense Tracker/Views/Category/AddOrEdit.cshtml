@@ -1,6 +1,7 @@
 ﻿@model Expense_Tracker.Models.Category
 
 @{
+    // Set the page title based on whether we're creating a new category or editing an existing one
     ViewData["PageTitle"] = Model.CategoryId == 0 ? "Create a new category" : "Edit category";
     // Set page title based on whether it's a new or existing category
 }
@@ -8,13 +9,16 @@
 <div class="row">
     <div class="col-md-7">
         <div class="widget p-5" style="background-color:white">
+            <!-- Form for creating or editing a category -->
             <form asp-action="AddOrEdit">
+                <!-- Display validation summary for model-level errors -->
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <!-- Hidden field to store CategoryId -->
                 <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
 
                 <!-- Radio buttons for category type -->
                 <div class="mb-3">
+                    <!-- Radio buttons for selecting the category type -->
                     <div class='e-btn-group custom-rbt-group'>
                         <input type="radio" id="radioleft" name="Type" value="Expense" checked="@(Model.Type == "Expense")" />
                         <label class="e-btn" for="radioleft">Expense</label>
@@ -25,12 +29,14 @@
 
                 <!-- Textbox for category title -->
                 <div class="mb-3">
+                    <!-- Textbox for entering the category title -->
                     <ejs-textbox id="title" placeholder="Title" ejs-for="Title" floatLabelType="Always"></ejs-textbox>
                     <span asp-validation-for="Title" class="text-danger fs-6"></span>
                 </div>
 
                 <!-- Textbox for category icon -->
                 <div class="mb-3">
+                    <!-- Textbox for entering the category icon -->
                     <ejs-textbox id="icon" placeholder="Icon" ejs-for="Icon" floatLabelType="Always"></ejs-textbox>
                 </div>
 
@@ -41,6 +47,7 @@
     </div>
     <div class="col-md-5">
         <div class="widget h-100 d-flex justify-content-center align-items-center">
+            <!-- Placeholder for an icon or graphic -->
             <i class="fa-solid fa-shapes fa-2xl"></i>
             <!-- Display icon -->
         </div>
@@ -49,7 +56,8 @@
 
 @*@section Scripts {
     @{
-    await Html.RenderPartialAsync("_ValidationScriptsPartial");
-}
+        // Include validation scripts if needed
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }*@
 // Uncomment this section to include validation scripts

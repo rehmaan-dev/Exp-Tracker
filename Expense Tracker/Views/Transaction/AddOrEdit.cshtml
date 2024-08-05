@@ -2,6 +2,7 @@
 
 @{
     ViewData["PageTitle"] = Model.TransactionId == 0 ? "Create a new transaction" : "Edit transaction";
+    // Set page title based on whether it's a new or existing transaction
 }
 
 <div class="row">
@@ -11,17 +12,28 @@
             <form asp-action="AddOrEdit">
                 <!-- Display validation errors -->
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<<<<<<< HEAD
                 <!-- Hidden field for TransactionId -->
                 <input type="hidden" name="TransactionId" value="@Model.TransactionId" />
 
                 <!-- Date Picker -->
+=======
+                <!-- Hidden field to store TransactionId -->
+                <input type="hidden" name="TransactionId" value="@Model.TransactionId" />
+
+                <!-- Date picker for transaction date -->
+>>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
                 <div class="mb-3">
                     <ejs-datepicker id="date" ejs-for="Date"
                                     placeholder="Date" floatLabelType="Always"
                                     format="MMM-dd-yy"></ejs-datepicker>
                 </div>
 
+<<<<<<< HEAD
                 <!-- Category Dropdown -->
+=======
+                <!-- Dropdown list for categories -->
+>>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
                 <div class="mb-3">
                     <ejs-dropdownlist id="ddlCategory" ejs-for="CategoryId"
                                       dataSource="@ViewBag.Categories" placeholder="Category"
@@ -32,6 +44,7 @@
                     <span asp-validation-for="CategoryId" class="text-danger fs-6"></span>
                 </div>
 
+<<<<<<< HEAD
                 <!-- Amount Numeric Textbox -->
                 <div class="mb-3">
                     <ejs-numerictextbox id="amount" ejs-for="Amount"
@@ -41,12 +54,27 @@
                 </div>
 
                 <!-- Note Textbox -->
+=======
+                <!-- Numeric textbox for amount -->
+                <div class="mb-3">
+                    <ejs-numerictextbox id="amount" ejs-for="Amount"
+                                        placeholder="Amount" floatLabelType="Always"
+                                        min=0 format="c0"></ejs-numerictextbox>
+                    <span asp-validation-for="Amount" class="text-danger fs-6"></span>
+                </div>
+
+                <!-- Textbox for notes -->
+>>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
                 <div class="mb-3">
                     <ejs-textbox id="note" placeholder="Note" ejs-for="Note"
                                  floatLabelType="Always" multiline="true"></ejs-textbox>
                 </div>
 
+<<<<<<< HEAD
                 <!-- Submit Button -->
+=======
+                <!-- Submit button -->
+>>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
                 <ejs-button id="submit" type="submit" content="Submit" cssClass="e-success"></ejs-button>
             </form>
         </div>
@@ -55,6 +83,7 @@
         <div class="widget h-100 d-flex justify-content-center align-items-center">
             <!-- Icon representing financial transactions -->
             <i class="fa-solid fa-money-bill-transfer fa-2xl"></i>
+            <!-- Icon representation -->
         </div>
     </div>
 </div>
@@ -64,3 +93,4 @@
     await Html.RenderPartialAsync("_ValidationScriptsPartial");
 }
 }*@
+// Uncomment this section to include validation scripts

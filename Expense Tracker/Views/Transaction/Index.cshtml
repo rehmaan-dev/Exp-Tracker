@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Expense_Tracker.Models.Transaction>
 
 @{
+    // Set the page title and action button text and URL
     ViewData["PageTitle"] = "Transactions";
     ViewData["PageActionText"] = "+ New Transaction";
     ViewData["PageActionUrl"] = "/Transaction/AddOrEdit";
@@ -8,17 +9,29 @@
 
 <div class="row">
     <div class="col-md-7">
+<<<<<<< HEAD
         <!-- Syncfusion Grid for displaying transactions -->
+=======
+        <!-- Initialize the grid with transaction data -->
+>>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
         <ejs-grid id="transactions" dataSource="@Model" gridLines="None"
                   allowSorting="true" allowPaging="true">
+            <!-- Set the page size to 10 -->
             <e-grid-pagesettings pageSize="10"></e-grid-pagesettings>
             <e-grid-columns>
+<<<<<<< HEAD
                 <!-- Column for Category -->
+=======
+                <!-- Define the grid columns -->
+>>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
                 <e-grid-column headerText="Category" field="CategoryTitleWithIcon"></e-grid-column>
                 <!-- Column for Date -->
                 <e-grid-column headerText="Date" field="Date" width="110px"
                                type="date" format="MMM-dd-yy" textAlign="Left"></e-grid-column>
+<<<<<<< HEAD
                 <!-- Column for Amount -->
+=======
+>>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
                 <e-grid-column headerText="Amount" field="FormattedAmount" textAlign="Right" width="110px"></e-grid-column>
                 <!-- Column for Actions -->
                 <e-grid-column headerText="Actions" template="#actionColumnTemplate" width="100px"></e-grid-column>
@@ -26,12 +39,14 @@
         </ejs-grid>
     </div>
     <div class="col-md-5">
+        <!-- Widget with an icon -->
         <div class="widget h-100 d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-money-bill-transfer fa-2xl"></i>
         </div>
     </div>
 </div>
 
+<<<<<<< HEAD
 <!-- Template for Action Column -->
 <script id="actionColumnTemplate" type="text/x-template">
     <div class="d-flex flex-row justify-content-start">
@@ -40,6 +55,16 @@
             <i class="fa-solid fa-pen fa-lg"></i>
         </a>
         <!-- Delete Button -->
+=======
+<!-- Template for action buttons in the grid -->
+<script id="actionColumnTemplate" type="text/x-template">
+    <div class="d-flex flex-row justify-content-start">
+        <!-- Edit button -->
+        <a class="btn btn-sm no-a-decoration" href="/Transaction/AddOrEdit/${TransactionId}">
+            <i class="fa-solid fa-pen fa-lg"></i>
+        </a>
+        <!-- Delete button with confirmation -->
+>>>>>>> b3626a4769a8d3a6e9ff7b06c267f06efae929dd
         <form action="/Transaction/Delete/${TransactionId}" method="post">
     @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-sm btn-link no-a-decoration"

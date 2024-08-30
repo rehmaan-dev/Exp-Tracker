@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Expense_Tracker.Models.Transaction>
+
+<h2>Expense List</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Note</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model)
+        {
+            <tr>
+                <td>@transaction.CategoryTitleWithIcon</td>
+                <td>@transaction.FormattedAmount</td>
+                <td>@transaction.Note</td>
+                <td>@transaction.Date.ToString("MMMM dd, yyyy")</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = transaction.TransactionId })">Edit</a> |
+                    <a href="@Url.Action("Details", new { id = transaction.TransactionId })">Details</a> |
+                    <a href="@Url.Action("Delete", new { id = transaction.TransactionId })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="btn btn-primary">Add New Expense</a>

@@ -1,7 +1,6 @@
 ﻿using Expense_Tracker.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
 
 namespace Expense_Tracker.Controllers
 {
@@ -109,6 +108,7 @@ namespace Expense_Tracker.Controllers
             return View();
         }
     }
+
 
     // Class for storing income and expense data for the spline chart.
     public class SplineChartData

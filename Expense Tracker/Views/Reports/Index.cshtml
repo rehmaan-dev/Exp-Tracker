@@ -9,7 +9,7 @@
             <th>Amount</th>
             <th>Note</th>
             <th>Date</th>
-            <th>Actions</th>
+        @*     <th>Actions</th> *@
         </tr>
     </thead>
     <tbody>
@@ -20,14 +20,14 @@
                 <td>@transaction.FormattedAmount</td>
                 <td>@transaction.Note</td>
                 <td>@transaction.Date.ToString("MMMM dd, yyyy")</td>
-                <td>
+              @*   <td>
                     <a href="@Url.Action("Edit", new { id = transaction.TransactionId })">Edit</a> |
                     <a href="@Url.Action("Details", new { id = transaction.TransactionId })">Details</a> |
                     <a href="@Url.Action("Delete", new { id = transaction.TransactionId })">Delete</a>
-                </td>
+                </td> *@
             </tr>
         }
     </tbody>
 </table>
 
-<a href="@Url.Action("Create")" class="btn btn-primary">Add New Expense</a>
+@* <a href="@Url.Action("Create")" class="btn btn-primary">Add New Expense</a> *@
